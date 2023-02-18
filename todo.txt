@@ -1,0 +1,18 @@
+todo list 2/15/23
+
+
+
+add skybox changer
+
+add fog changer
+
+add weapon chams
+
+add brightness changer
+
+add time changer
+
+add third person
+
+add viewmodel changer?
+
