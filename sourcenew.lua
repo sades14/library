@@ -1,5 +1,5 @@
 --// CUSTOM DRAWING
-
+local UserInputService = game:GetService("UserInputService")
 local drawing = {} do
     local services = setmetatable({}, {
         __index = function(self, key)
@@ -1288,6 +1288,9 @@ function library:GetConfigs(universal)
 end
 
 function library:Close()
+    
+    UserInputService.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceShow
+    
     self.open = not self.open
 
     services.InputService.MouseIconEnabled = not self.open and self.mousestate or false
@@ -2798,6 +2801,7 @@ function library:Load(options)
     utility.connect(services.RunService.RenderStepped, function()
         if self.open then
             local mousepos = services.InputService:GetMouseLocation()
+            UserInputService.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceShow
             cursor.PointA = mousepos
             cursor.PointB = mousepos + Vector2.new(6, 12)
             cursor.PointC = mousepos + Vector2.new(6, 12)
